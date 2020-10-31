@@ -1,0 +1,10 @@
+.nav_item {
+  font-size: 24px;
+}
+.nav_bar {
+  background-color: #fff;
+  width: 100%;
+  position: sticky; /* Липкое позиционирование */
+  top: 0; /* Положение сверху */
+  z-index: 3;
+}
