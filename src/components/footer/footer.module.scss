@@ -1,7 +1,35 @@
 .container {
   width: 100%;
   background-color: #222;
-  padding: 7vh 20% 3vh;
+  padding: 5vh 20% 1vh;
   text-align: center;
   color: #fff;
+}
+
+.icon_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vh;
+
+  & a {
+    margin: 0 10px;
+  }
+
+  & a:first-child {
+    margin-left: 0;
+  }
+
+  & a:last-child {
+    margin-right: 0;
+  }
+}
+
+.icon {
+  font-size: 34px;
+  color: #fff;
+  transition: transform .1s linear;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }

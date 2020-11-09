@@ -16,8 +16,9 @@ function WorkList(props) {
             />
 
             <div className={s.project_container}>
-                {list.map(({id, name, src, link}) => (
-                    <WorkItem key={id} name={name} src={src} link={link}/>
+                {list.map(({id, name, src, linkGit, linkPage}) => (
+                    <WorkItem key={id} name={name} src={src}
+                              linkGit={linkGit} linkPage={linkPage}/>
                     ))}
             </div>
         </div>

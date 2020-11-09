@@ -1,10 +1,28 @@
 .nav_item {
   font-size: 24px;
+
+  @media screen and (max-width: 400px) {
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
 }
-.nav_bar {
+.nav_bar_container {
   background-color: #fff;
   width: 100%;
   position: sticky; /* Липкое позиционирование */
   top: 0; /* Положение сверху */
   z-index: 3;
+
+  @media screen and (max-width: 400px) {
+    position: inherit;
+  }
 }

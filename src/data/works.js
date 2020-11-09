@@ -1,26 +1,30 @@
 const arr = [
     {
-        name: '"Todo app" with Native JS',
-        src: 'https://i.ibb.co/02mf8Xh/2.png',
-        link: 'https://github.com/AlexUnion/events',
+        name: 'Shop',
+        src: 'https://i.ibb.co/yQRSxyp/shop.png',
+        linkGit: 'https://github.com/AlexUnion/crwn_shop',
+        linkPage: 'https://alexunion.github.io/crwn_shop/',
         id: 1,
     },
     {
-        name: '"Monster Dashboard" with React',
-        src: 'https://i.ibb.co/gTpSwtK/3.png',
-        link: 'https://github.com/AlexUnion/monster_dashboard',
+        name: 'Todo app',
+        src: 'https://i.ibb.co/02mf8Xh/2.png',
+        linkGit: 'https://github.com/AlexUnion/events',
+        linkPage: 'https://alexunion.github.io/events/',
         id: 2,
+    },
+    {
+        name: 'Monster Dashboard',
+        src: 'https://i.ibb.co/gTpSwtK/3.png',
+        linkGit: 'https://github.com/AlexUnion/monster_dashboard',
+        linkPage: 'https://alexunion.github.io/monster_dashboard/',
+        id: 3,
     },
     {
         name: 'Guardian News',
         src: 'https://i.ibb.co/kGsf5s7/4.png',
-        link: 'https://github.com/AlexUnion/News',
-        id: 3,
-    },
-    {
-        name: 'Project 4',
-        src: 'https://images.wallpaperscraft.ru/image/ruka_mysh_klaviatura_143632_320x240.jpg',
-        link: '#',
+        linkGit: 'https://github.com/AlexUnion/News',
+        linkPage: 'https://alexunion.github.io/News/',
         id: 4,
     }
 ];

@@ -1,4 +1,5 @@
 $height: 240px;
+$vMargin: 30px;
 
 .card_item_container {
   position: relative;
@@ -15,10 +16,41 @@ $height: 240px;
     font-size: 22px;
     color: white;
     font-weight: 700;
-    line-height: $height;
     opacity: 0;
-    background-color: rgba(3, 3, 3, .7);
+    background-color: rgba(3, 3, 3, .8);
     transition: opacity .2s linear;
+
+    & .title {
+      line-height: $height/2 - $vMargin;
+      margin-top: $vMargin;
+    }
+
+    & .btn-container {
+
+      margin-bottom: $vMargin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: $height/2 - $vMargin;
+
+      & .btn {
+        border-radius: 10px;
+        border: 1px solid #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: inherit;
+        padding: 5px 15px;
+
+        &:visited {
+          color: inherit;
+        }
+
+        &:hover {
+          color: #20c23a
+        }
+      }
+    }
   }
 
   & img {
@@ -28,5 +60,9 @@ $height: 240px;
 
   &:hover .card_item_title{
     opacity: 1;
+  }
+
+  @media screen and (max-width: 750px) {
+    width: 100%;
   }
 }

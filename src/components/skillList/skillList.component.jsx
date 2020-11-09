@@ -2,41 +2,18 @@ import React from "react";
 import s from "./skillList.module.scss";
 import ListHeader from "../listHeader/listHeader.component";
 import SkillItem from "../skillItem/skillItem.component";
+import {css, StyleSheet} from "aphrodite";
+import {zoomIn} from "react-animations";
+import ScrollAnimation from "react-animate-on-scroll";
 
-const skills = [
-    {
-        name: 'HTML',
-        progress: 90
-    },
-    {
-        name: 'CSS',
-        progress: 75
-    },
-    {
-        name: 'JavaScript',
-        progress: 90
-    },
-    {
-        name: 'React JS',
-        progress: 60
-    },
-    {
-        name: 'Git',
-        progress: 50
-    },
-    {
-        name: 'Photoshop',
-        progress: 75
-    },
-    {
-        name: 'WebPack',
-        progress: 50
-    },
-    {
-        name: 'Node JS',
-        progress: 40
-    },
-]
+import skills from "../../data/skills";
+
+const style = StyleSheet.create({
+    zoomIn: {
+        animationName: zoomIn,
+        animationDuration: '1s',
+    }
+});
 
 function SkillList() {
     return (
@@ -44,11 +21,14 @@ function SkillList() {
             <ListHeader title={"My Skills"}
                         description={"Below is my knowledge and skills related to web development."}
             />
-            {
-                skills.map(({ name, progress }) => (
-                    <SkillItem title={name} progress={progress}/>
-                ))
-            }
+            <ScrollAnimation animateIn={css(style.zoomIn)}
+                             animateOnce={true}>
+                {
+                    skills.map(({ name, progress }) => (
+                        <SkillItem title={name} progress={progress}/>
+                    ))
+                }
+            </ScrollAnimation>
         </div>
     )
 }

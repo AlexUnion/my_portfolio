@@ -8,6 +8,10 @@ $bg-color: #ccc;
   background-color: $bg-color;
   padding: 120px 20%;
   font-family: 'Roboto Slab', serif;
+
+  @media screen and (max-width: 990px) {
+    padding: 120px 10%;
+  }
 }
 
 .project_container {

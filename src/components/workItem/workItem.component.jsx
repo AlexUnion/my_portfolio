@@ -12,16 +12,21 @@ const style = StyleSheet.create({
     }
 });
 
-function WorkItem(props) {
-    const { src, name, link } = props;
+function WorkItem({ src, name, linkGit, linkPage }) {
     return (
         <ScrollAnimation className="card_item_container"
                          animateIn={css(style.zoomIn)}
                          animateOnce={true}>
-            <a href={link}>
-                <div className="card_item_title">{name}</div>
-                <img src={src} alt=""/>
-            </a>
+            <div className="card_item_title">
+                <div className="title">
+                    {name}
+                </div>
+                <div className="btn-container">
+                    <a className="btn" href={linkPage}>view</a>
+                    <a className="btn" href={linkGit}>github</a>
+                </div>
+            </div>
+            <img src={src} alt=""/>
         </ScrollAnimation>
     );
 }
