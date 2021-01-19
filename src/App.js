@@ -1,26 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+
 import 'bootstrap/dist/css/bootstrap.css';
-
 import './App.css';
-
-import works from './data/works';
-
-import Greeting from "./components/greeting/greeting.component";
-import NavBar from "./components/navbar/navbar.component";
-import WorkList from "./components/workList/workList.component";
-import SkillList from "./components/skillList/skillList.component";
-import Footer from "./components/footer/footer.component";
+import Main from "./pages/main";
+import Loading from "./pages/loading/loading";
 
 function App() {
-  return (
-      <>
-        <Greeting/>
-        <NavBar/>
-        <WorkList list={works}/>
-        <SkillList/>
-        <Footer/>
-      </>
-  );
+    const [ isLoad, setLoad ] = useState(false);
+
+    window.onload = function() {
+        setTimeout(() => {
+            setLoad(true);
+        },3000);
+    }
+
+    return (
+        <>
+            {
+                isLoad ?
+                    <Main/> :
+                    <Loading/>
+            }
+        </>
+    );
 }
 
 export default App;
