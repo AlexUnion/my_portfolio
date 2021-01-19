@@ -22,7 +22,17 @@
   top: 0; /* Положение сверху */
   z-index: 3;
 
-  @media screen and (max-width: 400px) {
-    position: inherit;
+  & .container {
+    .mobile {
+      display: none;
+    }
+
+    .linksContainer {
+
+    }
+
+    @media screen and (max-width: 400px) {
+      position: inherit;
+    }
   }
 }

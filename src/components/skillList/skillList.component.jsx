@@ -17,15 +17,15 @@ const style = StyleSheet.create({
 
 function SkillList() {
     return (
-        <div className={s.container} id="skill">
+        <div className={s.container} id="skills">
             <ListHeader title={"My Skills"}
                         description={"Below is my knowledge and skills related to web development."}
             />
             <ScrollAnimation animateIn={css(style.zoomIn)}
                              animateOnce={true}>
                 {
-                    skills.map(({ name, progress }) => (
-                        <SkillItem title={name} progress={progress}/>
+                    skills.map(({ id, name, progress }) => (
+                        <SkillItem key={id} title={name} progress={progress}/>
                     ))
                 }
             </ScrollAnimation>

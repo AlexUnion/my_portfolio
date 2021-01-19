@@ -1,34 +1,28 @@
 import React from 'react';
-
-import { Nav } from "react-bootstrap";
-
 import s from  './navbar.module.scss';
+
+const scrollTo = (e) => {
+    e.preventDefault();
+    const scrollID = e.target.getAttribute('href');
+    document.querySelector(scrollID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    })
+}
 
 function Navbar() {
     return (
         <div className={s.nav_bar_container}>
-            <Nav
-                id={'navigation_bar'}
-                className="justify-content-center my-3"
-            >
-                <Nav.Item className={s.nav_item}>
-                    <Nav.Link eventKey="Greeting" href="#greeting">
-                        Greeting
-                    </Nav.Link>
-                </Nav.Item>
-                <Nav.Item className={s.nav_item}>
-                    <Nav.Link eventKey="works" href="#works">
-                        My Works
-                    </Nav.Link>
-                </Nav.Item>
-                <Nav.Item className={s.nav_item}>
-                    <Nav.Link eventKey="#works" href="#skill">
-                        My Skill
-                    </Nav.Link>
-                </Nav.Item>
-            </Nav>
-        </div>
+            <div className={s.container}>
+                <div className={s.mobile}>Navigation</div>
+                <div className={s.linksContainer}>
+                    <a href="#greeting" onClick={scrollTo}>Greeting</a>
+                    <a href="#works" onClick={scrollTo}>My works</a>
+                    <a href="#skills" onClick={scrollTo}>My skills</a>
+                </div>
+            </div>
 
+        </div>
     )
 }
 
