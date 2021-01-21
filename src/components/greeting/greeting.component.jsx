@@ -15,7 +15,7 @@ const style = StyleSheet.create({
 
 function Greeting() {
     return (
-        <div className={s.header} id="greeting">
+        <div className={s.header} id="greeting" style={{background: `fixed center/cover no-repeat url("${process.env.PUBLIC_URL}/img/code_1920x1080.jpg")`}}>
             <div className={s.header_container}>
                 <ScrollAnimation animateIn={css(style.anim)}
                                  animateOnce={true}>

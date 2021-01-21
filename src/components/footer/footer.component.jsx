@@ -1,5 +1,6 @@
 import React from "react";
 import s from './footer.module.scss';
+import logo from '../../logo.svg';
 import { GithubOutlined, FacebookFilled, TwitterCircleFilled, LinkedinOutlined } from '@ant-design/icons';
 
 function Footer() {
@@ -20,11 +21,14 @@ function Footer() {
                     <LinkedinOutlined className={s.icon}/>
                 </a>
             </div>
-            <p>
-                Created with React JS
+            <p className={s.withLogo}>
+                <div className={s.text}>
+                    Created with React JS
+                </div>
+                <img src={logo} alt="" className={s.logo}/>
             </p>
             <p>
-                &copy;2020 Alex Kyrychenko
+                &copy;2021 Alex Kyrychenko
             </p>
         </div>
     )

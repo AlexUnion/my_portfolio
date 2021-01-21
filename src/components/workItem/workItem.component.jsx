@@ -13,6 +13,7 @@ const style = StyleSheet.create({
 });
 
 function WorkItem({ src, name, linkGit, linkPage }) {
+    const url = `${process.env.PUBLIC_URL}/img/${src}`
     return (
         <ScrollAnimation className="card_item_container"
                          animateIn={css(style.zoomIn)}
@@ -26,7 +27,7 @@ function WorkItem({ src, name, linkGit, linkPage }) {
                     <a className="btn" href={linkGit}>github</a>
                 </div>
             </div>
-            <img src={src} alt=""/>
+            <img src={url} alt=""/>
         </ScrollAnimation>
     );
 }
