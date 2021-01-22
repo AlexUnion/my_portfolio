@@ -1,6 +1,5 @@
 import React from "react";
 import ProgressBar from 'react-bootstrap/ProgressBar';
-
 import s from './skillItem.module.scss';
 
 function SkillItem(props) {
