@@ -1,5 +1,4 @@
 import React from "react";
-
 import { zoomIn } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -10,12 +9,15 @@ const style = StyleSheet.create({
     anim: {
         animationName: zoomIn,
         animationDuration: '1s'
+    },
+        backImg: {
+        background: `fixed center/cover no-repeat url("${process.env.PUBLIC_URL}/img/code.jpg")`
     }
 })
 
 function Greeting() {
     return (
-        <div className={s.header} id="greeting" style={{background: `fixed center/cover no-repeat url("${process.env.PUBLIC_URL}/img/code_1920x1080.jpg")`}}>
+        <div className={`${s.header} ${css(style.backImg)}`} id="greeting">
             <div className={s.header_container}>
                 <ScrollAnimation animateIn={css(style.anim)}
                                  animateOnce={true}>

@@ -1,5 +1,5 @@
-$color: #fff;
-$color2: #22378d;
+$color: rgba(255, 255, 255, .35);
+$color2: #fff;
 
 .nav_item {
   font-size: 24px;
@@ -18,53 +18,37 @@ $color2: #22378d;
     }
   }
 }
-.nav_bar_container {
-  background-color: #fff;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: sticky; /* Липкое позиционирование */
-  top: 0; /* Положение сверху */
-  z-index: 3;
+.container {
+  .mobile {
+    display: none;
+  }
 
-  & .container {
-    .mobile {
-      display: none;
-    }
+  .linksContainer {
+    a {
+      text-decoration: none;
+      font-size: 22px;
+      color: #fff;
+      padding: 5px 15px;
 
-    .linksContainer {
-      a {
-        text-decoration: none;
-        font-size: 22px;
-        color: #333;
-        padding: 5px 15px;
-
-        position: relative;
-        transition: all 0.6s;
+      position: relative;
+      transition: all 0.6s;
+      &:before {
+        content: "";
+        width: 0;
+        height: 0.1em;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        background: $color2;
+        transition: all 0.3s;
+      }
+      &:hover {
         &:before {
-          content: "";
-          width: 0;
-          height: 0.1em;
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          background: $color;
-          transition: all 0.3s;
-        }
-        &:hover {
-          &:before {
-            width: 100%;
-            left: 0;
-            background: $color2;
-          }
+          width: 100%;
+          left: 0;
+          background: $color2;
         }
       }
-    }
-
-    @media screen and (max-width: 400px) {
-      position: inherit;
     }
   }
 }

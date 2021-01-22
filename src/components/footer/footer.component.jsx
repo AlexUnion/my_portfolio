@@ -21,12 +21,12 @@ function Footer() {
                     <LinkedinOutlined className={s.icon}/>
                 </a>
             </div>
-            <p className={s.withLogo}>
+            <div className={s.withLogo}>
                 <div className={s.text}>
                     Created with React JS
                 </div>
                 <img src={logo} alt="" className={s.logo}/>
-            </p>
+            </div>
             <p>
                 &copy;2021 Alex Kyrychenko
             </p>
