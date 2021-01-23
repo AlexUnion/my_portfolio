@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, css } from "aphrodite";
+import debounce from "../tool/debounce";
 import Greeting from "../components/greeting/greeting.component";
 import NavBar from "../components/navbar/navbar.component";
 import WorkList from "../components/workList/workList.component";
@@ -18,7 +19,6 @@ const style = StyleSheet.create({
         height: '100px',
         backgroundColor: 'rgba(255, 255, 255, .35)',
         position: 'absolute',
-        display: 'flex',
     },
     middleNavigation: {
         backgroundColor: '#333',
@@ -26,18 +26,19 @@ const style = StyleSheet.create({
     },
     hideNav: {
         height: '0',
-        display: 'none',
+        opacity: '0',
     },
     displayNav: {
         height: '80px',
-        display: 'flex',
+        opacity: '1',
     },
     navigation: {
+        display: 'flex',
         width: '100%',
         top: 0,
         justifyContent: 'center',
         alignItems: 'center',
-        transition: 'height .3s linear',
+        transition: 'height .3s linear, opacity .3s linear',
     }
 })
 
@@ -59,9 +60,11 @@ function Main() {
     useEffect(() => {
         const element = document.getElementById('works');
         elementObj.element = element;
+        const debouncedHandleScroll = debounce(handleScroll, 300);
         if (element) {
-            window.addEventListener('scroll',
-                () => { handleScroll(setDisplay); });
+            window.addEventListener('scroll', () => {
+                debouncedHandleScroll(setDisplay);
+            });
         }
     }, []);
     const names = isDisplay ?
