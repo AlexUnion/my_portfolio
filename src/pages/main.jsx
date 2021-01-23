@@ -8,6 +8,7 @@ import SkillList from "../components/skillList/skillList.component";
 import Footer from "../components/footer/footer.component";
 import Layout from "../layout/Layout";
 import works from "../data/works";
+import ContainerLayout from "../layout/ContainerLayout";
 
 const elementObj = {
     element: null,
@@ -77,14 +78,17 @@ function Main() {
                 className={`${css(style.topNavigation)} ${css(style.navigation)}`}>
                 <NavBar/>
             </Layout>
-            <WorkList list={works}/>
-            <SkillList/>
+            <ContainerLayout id="works" className='workList'>
+                <WorkList list={works}/>
+            </ContainerLayout>
+            <ContainerLayout id="skills" className='skillList'>
+                <SkillList/>
+            </ContainerLayout>
             <Footer/>
             <Layout
                 className={names}>
                 <NavBar/>
             </Layout>
-
         </>
     );
 }

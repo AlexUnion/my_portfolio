@@ -50,10 +50,13 @@ $react-line-size: 50px;
     display: inline-block;
     width: $react-line-size;
     height: $react-line-size;
-    animation-name: rotate-animation;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 5s;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation-name: rotate-animation;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-duration: 5s;
+    }
   }
 }
 

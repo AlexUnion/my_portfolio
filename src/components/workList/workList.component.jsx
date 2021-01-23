@@ -7,7 +7,7 @@ const description = "Below are some of my works. Some of them are written in Nat
 function WorkList(props) {
     const { list } = props;
     return (
-        <div className={s.container} id="works">
+        <>
             <ListHeader title={"My Works"}
                         description={description}
             />
@@ -17,7 +17,7 @@ function WorkList(props) {
                               linkGit={linkGit} linkPage={linkPage}/>
                     ))}
             </div>
-        </div>
+        </>
     )
 }
 
