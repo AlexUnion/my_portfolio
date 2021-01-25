@@ -1,0 +1,39 @@
+@import "./src/width";
+
+.skill_item {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  font: 300 18px 'Inter', sans-serif;
+
+  @media screen and (max-width: $medium) {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 16px;
+  }
+
+  .skill_item_title {
+    width: 30%;
+  }
+
+  .skill_item_progress {
+    width: 69%;
+  }
+}
+
+@media screen and (max-width: $medium) {
+  .skill_item {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 16px;
+  }
+
+  .skill_item_title {
+    width: 50%;
+  }
+
+  .skill_item_progress {
+    width: 50%;
+  }
+}
