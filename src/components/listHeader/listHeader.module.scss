@@ -1,16 +1,28 @@
+@import './src/width';
+
 .title {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 40px;
 }
 
 .description {
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 60px;
-  @media screen and (max-width: 600px) {
+
+  @media screen and (max-width: $medium) {
     font-size: 18px;
     margin: 2vh;
+    text-align: justify;
   }
+
+  @media screen and (max-width: $small) {
+    font-size: 16px;
+  }
+}
+
+.title, .description {
+  font-family: Inter, sans-serif;
 }
 
 .line {
@@ -19,7 +31,8 @@
   margin: 40px auto;
   padding: 0;
   width: 100%;
-  @media screen and (max-width: 600px) {
+
+  @media screen and (max-width: $medium) {
     margin: 15px auto;
   }
 }

@@ -4,20 +4,15 @@
   width: 100%;
   padding: 10px 20px;
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
   font: 300 18px 'Inter', sans-serif;
 
-  @media screen and (max-width: $medium) {
-    padding-left: 2vw;
-    padding-right: 2vw;
-    font-size: 16px;
-  }
-
-  .skill_item_title {
+  & .skill_item_title {
     width: 30%;
   }
 
-  .skill_item_progress {
+  & .skill_item_progress {
     width: 69%;
   }
 }
@@ -27,13 +22,13 @@
     padding-left: 2vw;
     padding-right: 2vw;
     font-size: 16px;
-  }
 
-  .skill_item_title {
-    width: 50%;
-  }
+    & .skill_item_title {
+      width: 50%;
+    }
 
-  .skill_item_progress {
-    width: 50%;
+    & .skill_item_progress {
+      width: 50%;
+    }
   }
 }

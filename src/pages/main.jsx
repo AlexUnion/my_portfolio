@@ -17,7 +17,7 @@ const elementObj = {
 
 const style = StyleSheet.create({
     topNavigation: {
-        height: '100px',
+        height: '80px',
         backgroundColor: 'rgba(255, 255, 255, .35)',
         position: 'absolute',
     },
