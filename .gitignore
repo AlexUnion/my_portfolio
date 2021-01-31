@@ -9,6 +9,7 @@ yarn.lock
 public/img
 src/fonts
 src/media
+src/react-app-env.d.ts
 
 # testing
 /coverage
