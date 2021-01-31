@@ -8,6 +8,7 @@ yarn.lock
 .env
 public/img
 src/fonts
+src/media
 
 # testing
 /coverage
