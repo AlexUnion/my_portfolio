@@ -1,6 +1,6 @@
 import React from "react";
 import s from './footer.module.scss';
-import logo from '../../logo.svg';
+import logo from '../../media/logo.svg';
 import { GithubOutlined, FacebookFilled, TwitterCircleFilled, LinkedinOutlined } from '@ant-design/icons';
 
 function Footer() {

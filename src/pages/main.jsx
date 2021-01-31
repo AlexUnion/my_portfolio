@@ -6,6 +6,7 @@ import NavBar from "../components/navbar/navbar.component";
 import WorkList from "../components/workList/workList.component";
 import SkillList from "../components/skillList/skillList.component";
 import Footer from "../components/footer/footer.component";
+import Switcher from "../components/switcher/switcher.component";
 import Layout from "../layout/Layout";
 import works from "../data/works";
 import ContainerLayout from "../layout/ContainerLayout";
@@ -67,6 +68,12 @@ function Main() {
                 debouncedHandleScroll(setDisplay);
             });
         }
+        const timeoutID = setTimeout(() => {
+            //Do something
+        }, 10000);
+        return () => {
+            clearTimeout(timeoutID);
+        }
     }, []);
     const names = isDisplay ?
         `${css(style.middleNavigation)} ${css(style.navigation)} ${css(style.displayNav)}` :
@@ -89,6 +96,7 @@ function Main() {
                 className={names}>
                 <NavBar/>
             </Layout>
+            <Switcher timeOut={1000}/>
         </>
     );
 }
