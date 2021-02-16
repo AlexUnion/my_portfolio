@@ -4,12 +4,7 @@ import s from './swithcer.module.scss';
 import * as lang from '../../redux/languages';
 import { langActions } from '../../redux/langSlice';
 
-interface IProps {
-    timeOut: number,
-}
-
-function Switcher(props: IProps): React.ReactElement | null {
-    const { timeOut = 0 } = props;
+function Switcher(): React.ReactElement | null {
 
     const dispatch = useDispatch();
     const [ displayIcon, setDisplayIcon ] = useState(false);
@@ -17,12 +12,12 @@ function Switcher(props: IProps): React.ReactElement | null {
     useEffect(() => {
         const timeoutID = setTimeout(() => {
             setDisplayIcon(true);
-        }, timeOut);
+        }, 1000);
 
         return () => {
             clearTimeout(timeoutID);
         }
-    }, [timeOut]);
+    }, []);
 
     document.body.addEventListener('click', () => {
         setDisplayList(false);

@@ -1,24 +1,20 @@
 import React from "react";
 import s from './greeting.module.scss';
-import { LanguageType, ENG, RUS, UKR } from '../../redux/languages';
+import { LanguageType } from '../../redux/languages';
+import chooseLanguage from "../../tool/chooseLanguage";
+import ITranslations from "../../interfaces/translations";
 
-interface ILanguage {
+interface IFields {
     upperString: string,
     profession: string,
     underString: string,
-}
-
-interface IGreeting {
-    eng: ILanguage,
-    ukr: ILanguage,
-    rus: ILanguage,
 }
 
 type Props = {
     lang: LanguageType,
 }
 
-const languages: IGreeting = {
+const translates: ITranslations<IFields> = {
     eng: {
         upperString: 'Hello, my name is Alex Kyrychenko and I am',
         profession: 'WEB DEVELOPER',
@@ -38,21 +34,7 @@ const languages: IGreeting = {
 
 function Greeting(props: Props): React.ReactElement {
     const { lang } = props;
-    let currentLanguage: ILanguage | null = null;
-    switch (lang) {
-        case UKR: {
-            currentLanguage = languages.ukr;
-            break;
-        }
-        case RUS: {
-            currentLanguage = languages.rus;
-            break;
-        }
-        case ENG:
-        default: {
-            currentLanguage = languages.eng;
-        }
-    }
+    let currentLanguage: IFields = chooseLanguage<IFields>(lang, translates);
     return (
         <div className={s.header} id="greeting">
             <div className={s.header_container}>

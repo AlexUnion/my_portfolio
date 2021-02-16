@@ -68,8 +68,8 @@ function handleScroll(setDisplay: React.Dispatch<React.SetStateAction<boolean>>)
     }
 }
 
-function Main(props: IProps) {
-    const { lang: currentLang } = props;
+function Main(props: IProps): React.ReactElement {
+    const { lang: currLanguage } = props;
     const [isDisplay, setDisplay] = useState(false);
     useEffect(() => {
         const element: HTMLElement | null = document.getElementById('works');
@@ -86,23 +86,23 @@ function Main(props: IProps) {
         `${css(style.middleNavigation)} ${css(style.navigation)} ${css(style.hideNav)}`
     return (
         <>
-            <Greeting lang={currentLang}/>
+            <Greeting lang={currLanguage}/>
             <Layout
                 className={`${css(style.topNavigation)} ${css(style.navigation)}`}>
-                <NavBar lang={currentLang}/>
+                <NavBar lang={currLanguage}/>
             </Layout>
             <ContainerLayout id="works" className='workList'>
-                <WorkList list={works} lang={currentLang}/>
+                <WorkList list={works} lang={currLanguage}/>
             </ContainerLayout>
             <ContainerLayout id="skills" className='skillList'>
-                <SkillList/>
+                <SkillList lang={currLanguage}/>
             </ContainerLayout>
-            <Footer/>
+            <Footer lang={currLanguage}/>
             <Layout
                 className={names}>
-                <NavBar lang={currentLang}/>
+                <NavBar lang={currLanguage}/>
             </Layout>
-            <Switcher timeOut={1000}/>
+            <Switcher/>
         </>
     );
 }

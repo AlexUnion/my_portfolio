@@ -1,7 +1,13 @@
 import { LanguageType, ENG, RUS, UKR } from "../redux/languages";
 
+interface ITranslations <U>{
+    eng: U,
+    ukr: U,
+    rus: U,
+}
+
 function chooseLanguage<T>(lang: LanguageType,
-                           translations: {eng: T, ukr: T, rus: T}): T {
+                           translations: ITranslations<T>): T {
     switch (lang) {
         case UKR: {
             return translations.ukr;

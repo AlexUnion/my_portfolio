@@ -2,8 +2,35 @@ import React from "react";
 import s from './footer.module.scss';
 import logo from '../../media/logo.svg';
 import { GithubOutlined, FacebookFilled, TwitterCircleFilled, LinkedinOutlined } from '@ant-design/icons';
+import ITranslations from "../../interfaces/translations";
+import chooseLanguage from "../../tool/chooseLanguage";
 
-function Footer() {
+interface IFields {
+    created: string,
+    name: string
+}
+interface IProps {
+    lang: string,
+}
+
+const translations: ITranslations<IFields> = {
+    eng: {
+        created: "Created with React JS",
+        name: "Alex Kyrychenko"
+    },
+    ukr: {
+        created: "Створено за допомогою React JS",
+        name: "Олексій Кириченко"
+    },
+    rus: {
+        created: "Созданно с помощью React JS",
+        name: "Алексей Кириченко"
+    }
+}
+
+function Footer(props: IProps): React.ReactElement {
+    const { lang } = props;
+    const currTranslate = chooseLanguage<IFields>(lang, translations);
     return (
         <div className={s.container}>
             <div className={s.icon_container}>
@@ -23,12 +50,12 @@ function Footer() {
             </div>
             <div className={s.withLogo}>
                 <div className={s.text}>
-                    Created with React JS
+                    {currTranslate.created}
                 </div>
                 <img src={logo} alt="" className={s.logo}/>
             </div>
             <p>
-                &copy;2021 Alex Kyrychenko
+                &copy;2021 {currTranslate.name}
             </p>
         </div>
     )

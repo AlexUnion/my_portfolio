@@ -1,22 +1,20 @@
 import React from 'react';
 import s from  './navbar.module.scss';
-import { LanguageType, ENG, RUS, UKR } from '../../redux/languages';
+import { LanguageType } from '../../redux/languages';
+import chooseLanguage from "../../tool/chooseLanguage";
+import ITranslations from "../../interfaces/translations";
 
-interface ILanguage {
+interface IFields {
     greeting: string,
     works: string,
     skills: string,
 }
-interface INavbar {
-    eng: ILanguage,
-    ukr: ILanguage,
-    rus: ILanguage,
-}
+
 interface IProps {
     lang: LanguageType,
 }
 
-const translations: INavbar = {
+const translations: ITranslations<IFields> = {
     eng: {
         greeting: 'Greeting',
         works: 'My works',
@@ -44,27 +42,11 @@ const scrollTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
             block: 'start'
         });
     }
-
 }
 
 function Navbar(props: IProps): React.ReactElement {
     const { lang } = props;
-    let currentTranslation: ILanguage | null = null;
-    switch (lang) {
-        case UKR: {
-            currentTranslation = translations.ukr;
-            break;
-        }
-        case RUS: {
-            currentTranslation = translations.rus;
-            break;
-        }
-        case ENG:
-        default: {
-            currentTranslation = translations.eng;
-            break;
-        }
-    }
+    let currentTranslation: IFields = chooseLanguage<IFields>(lang, translations);
     return (
         <div className={s.linksContainer}>
             <a href="#greeting" onClick={scrollTo}>{currentTranslation.greeting}</a>
