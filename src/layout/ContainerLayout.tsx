@@ -1,6 +1,12 @@
 import React from "react";
 
-function ContainerLayout(props) {
+interface IProps {
+    children: any,
+    className?: string,
+    id?: string,
+}
+
+function ContainerLayout(props: IProps): React.ReactElement {
     const { children, className = '', id = '' } = props;
     return (
         <div className={`container ${className}`} id={id}>

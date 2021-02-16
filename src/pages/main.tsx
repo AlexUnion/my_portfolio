@@ -92,7 +92,7 @@ function Main(props: IProps) {
                 <NavBar lang={currentLang}/>
             </Layout>
             <ContainerLayout id="works" className='workList'>
-                <WorkList list={works}/>
+                <WorkList list={works} lang={currentLang}/>
             </ContainerLayout>
             <ContainerLayout id="skills" className='skillList'>
                 <SkillList/>
