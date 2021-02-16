@@ -11,7 +11,16 @@ import Layout from "../layout/Layout";
 import works from "../data/works";
 import ContainerLayout from "../layout/ContainerLayout";
 
-const elementObj = {
+interface IProps {
+    lang: string,
+}
+
+type Element = {
+    element: HTMLElement | null,
+    isDisplay: boolean,
+}
+
+const popUpMenu: Element = {
     element: null,
     isDisplay: false,
 }
@@ -28,11 +37,11 @@ const style = StyleSheet.create({
     },
     hideNav: {
         height: '0',
-        opacity: '0',
+        opacity: 0,
     },
     displayNav: {
         height: '80px',
-        opacity: '1',
+        opacity: 1,
     },
     navigation: {
         display: 'flex',
@@ -44,35 +53,32 @@ const style = StyleSheet.create({
     }
 })
 
-function handleScroll(setDisplay) {
-    const { element, isDisplay } = elementObj;
-    const { y } = element.getBoundingClientRect();
-    if (y <= 0 && !isDisplay) {
-        elementObj.isDisplay = true;
-        setDisplay(true);
-    }
-    else if (y > 0 && isDisplay) {
-        elementObj.isDisplay = false;
-        setDisplay(false);
+function handleScroll(setDisplay: React.Dispatch<React.SetStateAction<boolean>>) {
+    const { element, isDisplay } = popUpMenu;
+    if (element) {
+        const { y } = element.getBoundingClientRect();
+        if (y <= 0 && !isDisplay) {
+            popUpMenu.isDisplay = true;
+            setDisplay(true);
+        }
+        else if (y > 0 && isDisplay) {
+            popUpMenu.isDisplay = false;
+            setDisplay(false);
+        }
     }
 }
 
-function Main() {
+function Main(props: IProps) {
+    const { lang: currentLang } = props;
     const [isDisplay, setDisplay] = useState(false);
     useEffect(() => {
-        const element = document.getElementById('works');
-        elementObj.element = element;
+        const element: HTMLElement | null = document.getElementById('works');
+        popUpMenu.element = element;
         const debouncedHandleScroll = debounce(handleScroll, 300);
         if (element) {
             window.addEventListener('scroll', () => {
                 debouncedHandleScroll(setDisplay);
             });
-        }
-        const timeoutID = setTimeout(() => {
-            //Do something
-        }, 10000);
-        return () => {
-            clearTimeout(timeoutID);
         }
     }, []);
     const names = isDisplay ?
@@ -80,10 +86,10 @@ function Main() {
         `${css(style.middleNavigation)} ${css(style.navigation)} ${css(style.hideNav)}`
     return (
         <>
-            <Greeting/>
+            <Greeting lang={currentLang}/>
             <Layout
                 className={`${css(style.topNavigation)} ${css(style.navigation)}`}>
-                <NavBar/>
+                <NavBar lang={currentLang}/>
             </Layout>
             <ContainerLayout id="works" className='workList'>
                 <WorkList list={works}/>
@@ -94,7 +100,7 @@ function Main() {
             <Footer/>
             <Layout
                 className={names}>
-                <NavBar/>
+                <NavBar lang={currentLang}/>
             </Layout>
             <Switcher timeOut={1000}/>
         </>

@@ -1,18 +1,43 @@
+@import "../../width";
+
+$iconSize: 50px;
+
+@mixin absolute-width-icon($width) {
+  bottom: $width;
+  left: $width;
+}
+@mixin absolute-width-list($width) {
+  bottom: $width + $iconSize / 2;
+  left: $width + $iconSize + 10;
+}
+
 .container {
-  width: 50px;
-  height: 50px;
+  @include absolute-width-icon(50px);
+  width: $iconSize;
+  height: $iconSize;
   background-color: #fff;
   border-radius: 50%;
   position: fixed;
-  bottom: 50px;
-  left: 50px;
   cursor: pointer;
-  transition: transform .2s linear;
+  transition: transform .1s linear;
+  box-shadow: 0 0 10px black;
 
-  animation-name: from-left;
+  animation-name: appearance-anim;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0,.58,.47,1);
   animation-iteration-count: 1;
+
+  @media only screen and (max-width: $medium) {
+    @include absolute-width-icon(40px);
+  }
+
+  @media only screen and (max-width: $small) {
+    @include absolute-width-icon(30px);
+  }
+
+  @media only screen and (max-width: $very-small) {
+    @include absolute-width-icon(20px);
+  }
 
   & .img {
     height: 100%;
@@ -22,10 +47,14 @@
 
   &:hover {
     transform: scale(1.1);
+
+    @media only screen and (max-width: $medium){
+      transform: none;
+    }
   }
 }
 
-@keyframes from-left {
+@keyframes appearance-anim {
   from {
     transform: scale(.8);
     opacity: 0;
@@ -34,4 +63,52 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.listContainer {
+  @include absolute-width-list(50px);
+  position: fixed;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 7px 7px 7px 0;
+  box-shadow: 0 0 5px #333;
+  transform: scaleX(0);
+  opacity: 0;
+
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  transition: transform .3s linear, opacity .2s linear;
+
+  transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+
+  @media only screen and (max-width: $medium) {
+    @include absolute-width-list(40px);
+  }
+  @media only screen and (max-width: $small) {
+    @include absolute-width-list(30px);
+  }
+  @media only screen and (max-width: $very-small) {
+    @include absolute-width-list(20px);
+  }
+
+  & .listItem {
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    padding: 0 10px;
+    margin: 5px 0;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+.displayList {
+  transform: scaleX(1);
+  opacity: 1;
 }

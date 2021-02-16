@@ -1,27 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ENG, RUS, UKR } from './languages';
+import * as lang from './languages';
+
+export interface ILanguage {
+    currentLang: lang.LanguageType
+}
+
+const initialState: ILanguage = {
+    currentLang: lang.ENG
+}
+
+//createSlice take care of the work of generation action type
 
 const langSlice = createSlice({
     name: 'lang',
-    initialState: {
-        currentLanguage: ENG,
-    },
+    initialState,
     reducers: {
-        toEng: (state) => {
-            console.log('to eng');
-            state.currentLanguage = ENG;
+        toEng: (state: ILanguage) => {
+            state.currentLang = lang.ENG;
         },
-        toUkr: (state) => {
-            console.log('to ukr');
-            state.currentLanguage = UKR;
+        toUkr: (state: ILanguage) => {
+            state.currentLang = lang.UKR;
         },
-        toRus: (state) => {
-            console.log('to rus');
-            state.currentLanguage = RUS;
+        toRus: (state: ILanguage) => {
+            state.currentLang = lang.RUS;
         }
     }
 })
 
-export const { toEng, toRus, toUkr } = langSlice.actions;
+export const langActions = langSlice.actions;
 
 export default langSlice.reducer;
